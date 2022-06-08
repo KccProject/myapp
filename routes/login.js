@@ -45,6 +45,12 @@ router.post('/getLogin', function(req, res, next) {
         console.log(result);
 
       });
+      var sql1 = "select * from `login`"
+      con.query(sql1, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+
+      });
 res.json({"Name":req.body})
 });
 
