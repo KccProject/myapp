@@ -1,7 +1,28 @@
 var express = require('express');
 var router = express.Router();
+// var modelLogin = require("../model/login")
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "192.168.17.44",
+  user: "bittu",
+  password: "1234",
+  database: "utkrisht"
+});
+
+
 
 router.get('/', function(req, res, next) {
+    console.log("Nitya");
+    con.connect(function(err) {
+        console.log("HARSH")
+        if (err) console.log("err");
+        console.log("Connected!");
+      });
+    // modelLogin.a(modelLogin.pandy.name)
+console.log("himani")
+console.log("SIR")
+console.log("BITTU")
     res.render('login')
 });
 
@@ -15,7 +36,15 @@ router.post('/getLogin', function(req, res, next) {
     console.log(req.body)
     // res.send({"name":"himani"})
     //res.render('teacher')
-    console.log(req.body.pass)
+    var sql = "INSERT INTO `login` (`email`, `pass`) \
+    VALUES ('"+req.body.Ashu+"', '"+req.body.pass+"');"
+    console.log(sql)
+   con.connect()
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log(result);
+
+      });
 res.json({"Name":req.body})
 });
 
