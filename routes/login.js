@@ -6,10 +6,10 @@ const { getLoginPost } = require('../contoller/contoller');
 const func = require('../model/login');
 
 var con = mysql.createConnection({
-  host: "192.168.14.1",
-  user: "root",
-  password: "1234",
-  database: "app_db"
+  host: "easylearning.guru",
+  user: "kcc_student",
+  password: "Kccitm.edu.in1",
+  database: "kccStudent"
 });
 
 
@@ -30,12 +30,23 @@ router.get('/', function (req, res, next) {
 
 router.get('/getLogin', function (req, res, next) {
   console.log(req.query)
+  con.connect()
+  con.query("select * from form", function (err, result) {
+    if (err) throw err;
+    console.log(result);
+    res.render('login', { "data": result })
+  });
   // res.send({"name":"himani"})
   //res.render('teacher')
-  res.json({ "Name": requ })
+  // res.json({ "Name": "Idiot" })
+});
+
+router.post('/updateLogin', function (req, res, next) {
+  console.log(req.body)
+  res.json({ "Name": "Hello"})
 });
 router.post('/getLogin', function (req, res, next) {
-  getLoginPost(req, res, next)           
+  getLoginPost(req, res, next)
   // console.log(req.body)
   // res.send({"name":"himani"})
   //res.render('teacher')

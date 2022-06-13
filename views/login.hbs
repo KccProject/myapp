@@ -12,10 +12,19 @@
         <input type="password" name="pass" id="" placeholder="pass"><br>
         <input type="submit">
     </form>
-    <table>
-        <tr>
-            <td></td>
-        </tr>
-    </table>
+
+        {{#data}}
+     
+           
+            <form action="/login/updateLogin" method="post">
+        <input type="text" name="id" id="" value="{{id}}"> <br>
+        <input type="text" name="name" id="" value="{{name}}"> <br>
+        <input type="text" name="country" id="" value="{{country}}"> <br>
+        <input type="text" name="age" id="" value="{{age}}"> <br>
+        <input type="submit">
+    </form>
+      <br>
+        {{/data}}
+   
 </body>
 </html>
