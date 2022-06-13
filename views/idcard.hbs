@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .container {
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<body>
+    <button id="mishra" class="click">DONT PRESS ME!!!</button>
+    <button id="mishra" class="click">PRESS ME!!!</button>
+
+    <button id="mishra" class="click">PRESS ME pLZZZZ!!!</button>
+    <div class="container">
+        <div class="row" id="data">
+
+
+        </div>
+
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        console.log("Nittya is sad");
+    });
+    $("button").click((event) => {
+        $.ajax({
+            url: "https://student.kccitm.edu.in/api/allDataApi",
+            success: function (result) {
+                var sunny = ""
+                for (var bittu = 0; bittu < result.length; bittu++) {
+                    sunny += '<div class="col-3"><div class="card" style="width: 18rem;">\
+            <img class="card-img-top" src="https://student.kccitm.edu.in/images/'+ result[bittu].PhoneNumber + '.png" alt="Card image cap">\
+            <div class="card-body">\
+                <h5 class="card-title">'+ result[bittu].FName + '</h5>\
+                <p class="card-text">'+ result[bittu].PhoneNumber + '\
+                    cards\
+                    content.</p>\
+                <a href="#" class="btn btn-primary">Go somewhere</a>\
+            </div>\
+        </div>'
+                }
+                console.log(sunny)
+                $("#data").append(sunny)
+            }
+        });
+    })
+</script>
+
+</html>

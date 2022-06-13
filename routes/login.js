@@ -43,7 +43,7 @@ router.get('/getLogin', function (req, res, next) {
 
 router.post('/updateLogin', function (req, res, next) {
   console.log(req.body)
-  res.json({ "Name": "Hello"})
+  res.json({ "Name": "Hello" })
 });
 router.post('/getLogin', function (req, res, next) {
   getLoginPost(req, res, next)
