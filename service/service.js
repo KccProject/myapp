@@ -1,7 +1,14 @@
 var func = {
     getEmailSend:(req)=>{
-        console.log(req.body.Ashu)
+        console.log("Utkrisht")
+    },
+    a:()=>{
+        return "Hello"
+    },
+    b:()=>{
+        return "Idiot"
     }
+    
 }
 
 module.exports = func;

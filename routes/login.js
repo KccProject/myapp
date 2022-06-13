@@ -29,10 +29,11 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/getLogin', function (req, res, next) {
-  console.log(req.query)
+  getLoginPost(req, res, next)    
+  
   // res.send({"name":"himani"})
   //res.render('teacher')
-  res.json({ "Name": requ })
+  // res.json({ "Name": requ })
 });
 router.post('/getLogin', function (req, res, next) {
   getLoginPost(req, res, next)           
